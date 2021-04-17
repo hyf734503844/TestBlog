@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../static/css/me.css">
+<!--  <style type="text/css" id="cc">-->
+<!--    body{margin: 0;padding: 0;}-->
+<!--    .main{width: 800px;height: 500px;margin: 0 auto;}-->
+<!--    .left{width: 20%;background-color: #ccc;height: 500px;float: left;}-->
+<!--    .right{width: 80%;background-color: #666666;height: 500px;float: right;}-->
+<!--  </style>-->
+</head>
+
+<body>
+
+  <!--导航-->
+  <nav th:replace="_fragments :: menu(7)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+
+      <div class="ui inverted secondary stackable menu">
+        <h2 class="ui teal header item" th:text="${session.user.getNickname()}"></h2>
+        <h2 class="ui teal header item">的博文</h2>
+        <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>首页</a>
+
+        <a href="#" th:href="@{/file}" class="m-item item m-mobile-hide " th:classappend="${n==9} ? 'active'"><i class="mini home icon"></i>上传</a>
+        <a href="#" th:href="@{/showFiles}" class="m-item item m-mobile-hide " th:classappend="${n==10} ? 'active'"><i class="mini info icon"></i>下载</a>
+        <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>类型</a>
+        <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>框架分类</a>
+        <!--      <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>归档</a>-->
+        <a href="#" th:if="${session.user != null && session.flag != 0}" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini info icon"></i>关于我</a>
+        <a href="#" th:if="${session.flag == 0}"  th:href="@{/user}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>个人中心</a>
+        <a href="#" th:href="@{/admin}" class="m-item item m-mobile-hide" th:classappend="${n==7} ? 'active'"><i class="mini info icon"></i>管理员</a>
+        <a href="#" th:if="${session.flag == 0}"  th:href="@{/user/res}" class="m-item item m-mobile-hide" th:classappend="${n==8} ? 'active'"><i class="mini info icon"></i>注册</a>
+        <div class="right m-item item m-mobile-hide">
+          <div class="ui icon inverted transparent input m-margin-tb-tiny">
+            <input type="text" placeholder="Search....">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="ui container">
+
+      <div class="ui inverted secondary stackable menu">
+        <td></td>
+
+
+        <!--      <a href="#" th:if="${session.user != null && session.flag != 0}" th:href="@{/user/userlogout}" class="m-item item m-mobile-hide" th:classappend="${n==9} ? 'active'"><i class="mini info icon"></i>注销</a>-->
+        <div class="ui inverted secondary stackable menu">
+          <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=o9LTws-ZzpSakpDj0tKNwMzO" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+        </div>
+
+
+
+        <div class="right m-item m-mobile-hide menu">
+
+          <div class="ui dropdown  item">
+            <div class="text">
+              <img   class="ui avatar image"  th:src="@{'/images/hyfwechat.jpg'}">
+              <img  th:if="${session.user != null && session.flag != 0}" class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{'/images/'+${session.user.getAvatar()}}">
+              <span th:text="${session.user.nickname}"></span>
+              <!--        </div>-->
+              <!--        <i class="dropdown icon"></i>-->
+              <!--        <div class="menu">-->
+              <!--          <a href="#" th:href="@{/admin/logout}" class="item">注销</a>-->
+              <!--          <a href="#" class="item" th:href="@{/user/userinfo/{id} (id=${session.user.getId()}) }">个人信息</a>-->
+              <!--          <a href="#" class="item" th:href="@{/user/updatepassword/{id} (id=${session.user.getId()})}" >修改密码</a>-->
+              <!--        </div>-->
+              <!--      </div>-->
+
+            </div>
+
+          </div>
+        </div>
+        <!--  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">-->
+        <!--    <i class="sidebar icon"></i>-->
+        <!--  </a>-->
+      </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+      <i class="sidebar icon"></i>
+    </a>
+  </nav>
+  <div class="ui container">
+
+    <div class="ui stackable grid">
+
+      <div class="five wide column">
+        <form  action="" method="post" class="form-userInfo" th:action="@{/user/useredit/{id} (id=${session.user.getId()})}" enctype="multipart/form-data">
+
+          <div>
+
+            <img align="center" class="ui medium circular mini image" th:src="@{'/images/'+${session.user.getAvatar()}}"/>
+            <!--            <img src="../../static/images/avatar.png">-->
+            <!--                  <p th:text="${session.user.getAvatar()}">-->
+          </div>
+          <br>
+          <label th:text="码龄" ></label>
+          <label th:text="${session.ageofcode}"></label>
+          <br>
+          <br>
+          <tr>
+
+            <label>
+              <td> <span>更改头像 :</span>
+              </td>
+              <td><input type="file"  name="file" placeholder="" accept="image/*"></td>
+            </label>
+          </tr>
+          <br>
+          <br>
+          <label>
+            <span>username :</span>
+            <input type="text"  name="username" placeholder="Your Full Name" th:value="${session.user.getUsername()}">
+          </label>
+
+          <br>
+          <br>
+          <br>
+          <label>
+            <span>nickname :</span>
+            <input type="text"  name="nickname" placeholder="Your Full Name" th:value="${session.user.getNickname()}">
+            <br>
+            <br>
+            <td>
+
+              <span>email :</span>
+            </td>
+
+            <td>
+              <input type="email" name="email" placeholder="@.com" th:value="${session.user.getEmail()}">
+            </td>
+            <br>
+            <br>
+          </label>
+          <!--        <label>-->
+          <!--            <span>createTime :</span>-->
+          <!--            <input type="text" name="createTime" placeholder="You createTime" th:value="${session.user.getCreateTime()}">-->
+          <!--        </label>-->
+          <!--        <label>-->
+          <!--            <span>updateTime</span>-->
+          <!--            <input type="text" name="updateTime" placeholder="Your updateTime" th:value="${session.user.getUpdateTime()}"></input>-->
+          <!--        </label>-->
+
+          <br>
+
+          <div>
+            <button type="submit" class="ui primary button" th:text="   保存" ></button>
+          </div>
+          <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+
+        </form>
+
+
+        <div  class="ui top attached segment" >
+          <div class="ui action input">
+            <input type="text" placeholder="搜索..." style="width: 265px;">
+            <button class="ui icon button">
+              <i class="search icon"></i>
+            </button>
+          </div>
+          <br>
+        </div>
+        <div class="ui top attached positive message" >
+          热门文章
+          <br>
+        </div>
+        <div  class="ui bottom attached segment" >
+          <!--*********************************************下*******************************************/-->
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br>
+        </div>
+
+        <div class="ui top attached positive message" >
+          最新文章
+          <br>
+        </div>
+        <div  class="ui bottom attached segment" >
+          <!--*********************************************下*******************************************/-->
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br>
+        </div>
+
+        <div class="ui top attached positive message" >
+          最新评论
+          <br>
+        </div>
+        <div  class="ui bottom attached segment" >
+          <!--*********************************************下*******************************************/-->
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br><br><br>
+          <br><br><br>
+        </div>
+      </div>
+
+      <div class="eleven wide column">
+        <div class="ui segments m-margin-top-large">
+          <div class="ui two column grid">
+            <div class="column">
+              <i class="tags icon"></i>最新推荐
+            </div>
+            <div class="right aligned column">
+              <a href="#" th:href="@{/recommentblog/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+            </div>
+          </div>
+          <div class="ui segment" th:each="blog : ${recommendBlogs}">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}"></a>
+          </div>
+
+
+          <div class="ui two column grid">
+            <div class="column">
+              <i class="tags icon"></i>热度排行
+            </div>
+            <div class="right aligned column">
+              <a href="#" th:href="@{/recommentblog/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+            </div>
+          </div>
+          <div class="ui segment" th:each="blog : ${recommendBlogs}">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}"></a>
+          </div>
+
+          <div class="ui two column grid">
+            <div class="column">
+              <i class="tags icon"></i>排行榜
+            </div>
+            <div class="right aligned column">
+              <a href="#" th:href="@{/recommentblog/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+            </div>
+          </div>
+          <div class="ui segment" th:each="blog : ${recommendBlogs}">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}"></a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!--  <div class="ui bottom attached segment">-->
+    <!--            <a href="#" class="ui circular icon button"><i class="github icon"></i></a>-->
+    <!--            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>-->
+    <!--            <a href="#" class="ui qq circular icon button" data-content="734503844" data-position="bottom center"><i class="qq icon"></i></a>-->
+
+<!--    <a href="#" th:href="@{/admin/user/blogs/{id} (id=${session.user.getId()})}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>博文管理</a>-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/collection/{id} (id=${session.user.getId()})}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>收藏管理</a>-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/user/listFollow/{id} (id=${session.user.getId()})}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>我关注的</a>-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/user/listFollow/{id} (id=${session.user.getId()})}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>我的关注</a>-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/personalhistory}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>浏览足迹</a>-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/user/updatepassword/{id} (id=${session.user.getId()})}"  class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>修改密码</a>-->
+<!--    &lt;!&ndash;            <a href="#" th:href="@{/user/userinfo/{id} (id=${session.user.getId()}) }" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>信息</a>&ndash;&gt;-->
+<!--    &lt;!&ndash;            0.传入  &ndash;&gt;-->
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/about}" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>个人资料</a>-->
+
+<!--    <br>-->
+<!--    <a href="#" th:href="@{/admin/logout}"  class="ui circular icon button"  data-position="bottom center"><i class="icon setting"></i>注销登录</a>-->
+
+
+
+
+<!--  </div>-->
+  <!--中间内容-->
+
+    <div class="container">
+      <div class="ui right fixed vertical menu">
+        <div class="item">
+          <img class="ui mini image" src="../images/df141b1e-c8ce-446c-945a-e6d6141ef7a8.jpg"  th:width="300" th:high="300">
+        </div>
+          <a href="#" th:href="@{/admin/user/blogs/{id} (id=${session.user.getId()})}" class="item"  data-position="bottom center">博文管理</a>
+          <a href="#" th:href="@{/collection/{id} (id=${session.user.getId()})}" class="item"  data-position="bottom center">收藏管理</a>
+          <a href="#" th:href="@{/user/listFollow/{id} (id=${session.user.getId()})}" class="item"  data-position="bottom center">我关注的</a>
+          <a href="#" th:href="@{/user/listFollow/{id} (id=${session.user.getId()})}" class="item"  data-position="bottom center">我的关注</a>
+          <a href="#" th:href="@{/personalhistory}" class="item"  data-position="bottom center">浏览足迹</a>
+          <a href="#" th:href="@{/user/updatepassword/{id} (id=${session.user.getId()})}"  class="item"  data-position="bottom center">修改密码</a>
+          <!--            <a href="#" th:href="@{/user/userinfo/{id} (id=${session.user.getId()}) }" class="circular ui icon button"  data-position="bottom center"><i class="icon setting"></i>信息</a>-->
+          <!--            0.传入  -->
+          <a href="#" th:href="@{/about}" class="item"  data-position="bottom center">个人资料</a>
+          <a  href="#" th:href="@{/admin/logout}"  class="item"  data-position="bottom center">注销登录</a>
+
+        <a class="item">推荐</a>
+        <a class="item">登录</a>
+      </div>
+
+
+    </div>
+
+
+
+
+
+  <!--底部footer-->
+  <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+      <div class="ui inverted divided stackable grid">
+        <div class="three wide column">
+          <div class="ui inverted link list">
+            <div class="item">
+              <img src="../static/images/hyfwechat.jpg" th:src="@{/images/hyfwechat.jpg}" class="ui rounded image" alt="" style="width: 110px">
+            </div>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+            <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+            <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item m-text-thin">Email：734503844@qq.com</a>
+            <a href="#" class="item m-text-thin">QQ：734503844</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+          <p class="m-text-thin m-text-spaced m-opacity-mini">这是我们的第一个框架作品</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2010 - 2020  Designed by L.H.H.C.P</p>
+    </div>
+
+  </footer>
+  <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+  <!--/*/</th:block>/*/-->
+
+  <script>
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.wechat').popup({
+      popup : $('.wechat-qr'),
+      position: 'bottom center'
+    });
+    $('.qq').popup();
+
+
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+  </script>
+</body>
+</html>

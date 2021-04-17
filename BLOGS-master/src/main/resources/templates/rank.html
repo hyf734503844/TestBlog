@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件开发者社区</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
+    <link rel="stylesheet" href="../static/css/me.css" >
+</head>
+<body style="background-image:url(../images/02001916-b3e0-4ce8-826a-102d6e1e6db8.jpg);background-size: 100%; ">
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(6)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small"
+>
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>年份</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>类别</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+            <!DOCTYPE html>
+
+
+
+
+
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon inverted transparent input m-margin-tb-tiny">
+                    <input type="text" placeholder="Search....">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
+    <div class="ui vertical icon buttons ">
+        <button type="button" class="ui toc teal button" >目录</button>
+        <a href="#comment-container" class="ui teal button" >留言</a>
+        <button class="ui wechat icon button"><i class="weixin icon"></i></button>
+        <div id="toTop-button" class="ui icon button" ><i class="chevron up icon"></i></div>
+    </div>
+</div>
+<!--中间内容-->
+<!--  <div  class="m-container m-padded-tb-big animated fadeIn">-->
+<div class="container">
+    <div class="ui right fixed vertical menu">
+        <div class="item">
+            <img class="ui mini image" src="../images/df141b1e-c8ce-446c-945a-e6d6141ef7a8.jpg">
+            <span>WelCome!</span>
+        </div>
+        <a href="#" th:href="@{/user}" class="item">登录</a>
+        <a href="#" class="item" th:href="@{/user/res}">注册</a>
+
+    </div>
+
+
+
+</div>
+<div class="ui container">
+    <div class="ui stackable grid">
+        <!--右边的top-->
+        <div class="five wide column">
+
+            <div class="ui segments m-margin-top-large">
+
+
+                <a style="color: black;" href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==2} ? 'active'"><i class="file alternate outline icon"></i>综合热榜</a>
+                <br>
+                <br>
+                <a style="color: black;" href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==2} ? 'active'"><i class="file alternate outline icon"></i>新晋作者</a>
+                <br>
+                <br>
+                <a  style="color: black;" href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==2} ? 'active'"><i class="file alternate outline icon"></i>作者周榜</a>
+                <br>
+                <br>
+                <a  style="color: black;" href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==2} ? 'active'"><i class="file alternate outline icon"></i>作者总榜</a>
+                <br>
+                <br>
+            </div>
+
+
+            <div class="ui segment" >
+                <div class="ui two column grid">
+                    <div class="column">
+                        热榜规则说明
+                        1.平台依据发博文、博文点赞、收藏、热度等多维度数据，按照权重计算出综合指标；如果获得编辑推荐，更会额外增加综合指标哟
+                        2.你的活跃行为如：点赞、评论、收藏也会增加你的本周综合指标；精彩评论获赞数越多，综合指标越高哟~~
+
+                        「 Tips 」
+                        1.榜单每日更新
+                        2.SDC 坚决抵制刷榜行为，欢迎全网会员共同监督举报
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--/*-->
+                <div class="ui segment" >
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <div class="ui segment">
+                    <a href="#" target="_blank" class="m-black m-text-thin">用户故事（User Story）</a>
+                </div>
+                <!--*/-->
+            </div>
+
+            <!--二维码-->
+            <!--          <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>-->
+            <!--          <div class="ui centered card" style="width: 11em">-->
+            <!--&lt;!&ndash;            <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" >&ndash;&gt;-->
+            <!--          </div>-->
+        </div>
+        <!--左边博客列表-->
+        <div class="eleven wide column">
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+
+            <!--content-->
+            <div class="ui attached  segment">
+                2017年1月17日，习近平主席在世界经济论坛年会开幕式上发表题为《共担时代责任 共促全球发展》的主旨演讲，洞察经济全球化面临的深层次问题，指明了经济全球化的发展方向， 表明了中国推动经济全球化的坚定立场。4年前，这篇主旨演讲被赞誉为“冬日里的阳光”；4年来，这篇演讲一直被国际社会所铭记，持续启迪人类关于经济全球化的深入思考。
+
+                “历史地看，经济全球化是社会生产力发展的客观要求和科技进步的必然结果，不是哪些人、哪些国家人为造出来的”“经济全球化为世界经济增长提供了强劲动力，促进了商品和资本流动、科技和文明进步、各国人民交往”“经济全球化确实带来了新问题，但我们不能就此把经济全球化一棍子打死，而是要适应和引导好经济全球化”……这是看待经济全球化的正确方式，也是继续推动开放合作，使经济全球化继续为增进人类福祉服务的重要基础。
+
+                越是困难时刻越需要思想之光的指引，越是危机面前越能彰显真理穿透时空的力量。悟懂习近平主席关于经济全球化的重要论述，能够看到世界经济复苏发展的希望和路径。新冠肺炎疫情发生以来，国际交流和人员往来严重受阻，全球贸易和投资大幅下降，世界经济受到供给侧、需求侧的冲击。一些人抛出全球产业链和供应链“掉链子”、“经济全球化已经终结”的论调，逆全球化思潮涌动。但正如国际货币基金组织前首席经济学家肯尼思·罗戈夫所指出，拒绝开放的“副产品”不仅是增长放缓，而且会导致所有国家国民收入大幅下降。
+
+                疫情给经济全球化造成阻力，但各国走向开放、走向合作的大势没有改变。新一轮科技革命和产业变革加速演进，不断释放新的推动经济全球化发展的动力。美国《哈佛商业评论》认为，电子商务、视频会议和机器人等领域正在发生技术变革，这些转变可能促进经济全球化。世界经济论坛发布报告指出，疫情防控期间全球贸易正在经历技术变革，贸易技术可能推动知识密集型产品和服务跨境流动，技术进步可以帮助缩小发达国家与发展中国家、小型与大型企业间的差距，甚至提供跨越式赶超机会。这些表明，经济全球化正面临新的发展机遇，推动经济全球化朝着正确方向发展，能够助力破解发展难题。
+
+                “人类历史告诉我们，有问题不可怕，可怕的是不敢直面问题，找不到解决问题的思路。面对经济全球化带来的机遇和挑战，正确的选择是，充分利用一切机遇，合作应对一切挑战，引导好经济全球化走向。”疫情仍在扩散蔓延，世界经济复苏不稳定不平衡，当务之急是携手抗击疫情，畅通世界经济运行脉络，引导好经济全球化走向，为世界经济复苏发展提供动力。4年前习近平主席为世界经济开出的“药方”，当前也十分“对症”：坚持创新驱动，打造富有活力的增长模式；坚持协同联动，打造开放共赢的合作模式；坚持与时俱进，打造公正合理的治理模式；坚持公平包容，打造平衡普惠的发展模式。显然，这是把准了痛点难点焦点，抓住关键的“对症下药”。
+
+                中国是经济全球化的受益者，更是贡献者。中国坚定不移扩大高水平开放，以实际行动推动建设开放型世界经济。4年来，中国自贸试验区增加至21个；连续举办3届中国国际进口博览会，中国市场正成为世界的市场、共享的市场、大家的市场；中国加快构建新发展格局，既为中国经济发展开辟空间，也为世界经济复苏和增长增添动力。中国举办两届“一带一路”国际合作高峰论坛，携手各国高质量共建“一带一路”；中国积极推动签署区域全面经济伙伴关系协定，中欧投资协定谈判如期完成，增强了国际社会对经济全球化和自由贸易的信心。中国坚定选择同世界各国互利共赢、共同发展，用丰硕的实践成果雄辩地证明何为“积力之所举，则无不胜也；众智之所为，则无不成也”。
+
+                历史是勇敢者创造的，关键时刻更需要把准正确方向。人们应当坚信，只要各国牢固树立人类命运共同体意识，携手努力、共同担当，同舟共济、共渡难关，就一定能够推动经济全球化朝着更加开放、包容、普惠、平衡、共赢的方向发展，就一定能够让世界更美好、让人民更幸福。
+
+
+                <!--/*-->
+
+                <!--*/-->
+            </div>
+
+
+
+
+
+
+            <!--          <div class="ui bottom attached segment" th:if="${page.totalPages}>1">-->
+            <!--            -->
+            <!--          </div>-->
+        </div>
+
+
+
+    </div>
+</div>
+
+</div>
+
+<br>
+<br>
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/hyfwechat.jpg" th:src="@{/images/hyfwechat.jpg}" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">Email：734503844@qq.com</a>
+                    <a href="#" class="item m-text-thin">QQ：734503844</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我们的第一个框架作品</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2010 - 2020  Designed by L.H.H.C.P</p>
+    </div>
+
+</footer>
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+    $('.ui.search')
+        .search({
+            source: content
+        })
+    ;
+    var content = [
+        { title: 'Andorra' },
+        { title: 'United Arab Emirates' },
+        { title: 'Afghanistan' },
+        { title: 'Antigua' },
+        { title: 'Anguilla' },
+        { title: 'Albania' },
+        { title: 'Armenia' },
+        { title: 'Netherlands Antilles' },
+        { title: 'Angola' },
+        { title: 'Argentina' },
+        { title: 'American Samoa' },
+        { title: 'Austria' },
+        { title: 'Australia' },
+        { title: 'Aruba' },
+        { title: 'Aland Islands' },
+        { title: 'Azerbaijan' },
+        { title: 'Bosnia' },
+        { title: 'Barbados' },
+        { title: 'Bangladesh' },
+        { title: 'Belgium' },
+        { title: 'Burkina Faso' },
+        { title: 'Bulgaria' },
+        { title: 'Bahrain' },
+        { title: 'Burundi' }
+        // etc
+    ];
+
+
+</script>
+</body>
+</html>

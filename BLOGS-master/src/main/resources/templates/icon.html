@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>自定义上传文件样式</title>
+    <style type="text/css">
+        .daoru {font-size: 13px;}
+        .daoru .input_text {width: 300px;height: 12px;line-height: 12px;padding: 5px;border: 1px solid #C0C5CB;font-size: 12px;color: #333;}
+        .daoru .input_sub {width: 60px;height: 24px;line-height: 24px;text-align: center;font-size: 13px;color: #fff;border: none;background: #DA3610;}
+        .daoru .input_file {position: absolute;top: 0;left: 99px;height: 48px;_height: 30px;filter: alpha(opacity : 0);opacity: 0;width: 518px;background:black;}
+    </style>
+</head>
+<body>
+<div class="daoru">导入文件路径：
+    <input type="text"   class="input_text" id="textfield"  >
+    <input type="button" class="input_sub"  value="浏览..." >
+    <input type="submit" class="input_sub"  value=" 上 传 " >
+    <input type="file"   class="input_file" contenteditable="false"  οnchange="document.getElementById('textfield').value=this.value">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="/sms/Code">
+    <input type="text" name="phone">
+    <br>
+    <p><input type="submit" value="上传" /></p>
+</form>
+</body>
+
+<script>
+//     ==会自动转换成一样的类型比较  ===按原类型
+    var obj=new Object();
+    obj={
+        name: "Simon",
+        age:   20,
+        email: "734523844@qq.com",
+        aa:{
+            phone:1,
+            t:20
+        }
+    }
+    //局部变量
+    let b="qq";
+    //全局变量
+    var age="tom";
+    //常量
+    const a="yy"
+
+    age="aabb"
+    // alert(obj.aa.phone);
+
+    var arr2=new Array();
+
+    //vector
+    var arr=[];
+    arr=[1,2,3];
+    for(let i in arr){
+        // alert(i);
+    }
+    arr.push("4");
+    arr.pop();
+
+    arr.reverse();
+
+    // let abc=1;
+    function add(x){
+        let abc=1;
+        abc+=x;
+        return abc;
+    }
+
+    // alert(add(99));
+
+    //闭包  类似于递归
+    function addtt(x){
+        return function (b) {
+            return b+x;
+        }
+    }
+
+    var x=addtt(1);
+    alert(x(9999));
+
+</script>
+
+</html>

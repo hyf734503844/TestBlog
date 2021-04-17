@@ -1,0 +1,204 @@
+
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="UTF-8"><title>注册</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn-go.cn/qq-web/zc.qq.com/12ea5880/v3/css/index-0c5fcb9ebc.css"></head>
+<body   data-bind="style:{overflow: is_up_sms() || is_verify() ? 'hidden' : ''}" style="display:none;opacity:0"><a href="javascript:void(0)" data-bind="click: home"></a>
+<div class="side" data-bind="style:{backgroundImage:currentSideUrl()}"></div>
+<div  class="item language-entry" data-bind="event:{mouseenter:openLang,mouseleave:closeLang}">
+    <div style="background-image:url(../images/02001916-b3e0-4ce8-826a-102d6e1e6db8.jpg);background-size: 100%;">
+        <center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+
+
+            <div class="ur container">
+                <div class="ui middle aligned center aligned grid">
+
+                    <div class=" column">
+<!--                            <i class="sign-out icon"></i><a src="index.html"></a>-->
+
+                        <font size=10>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎注册SDC</font>
+                        <br>
+                        <br>
+                        <br>
+                        <font size=6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Happy Coding.</font> <br>
+                        <br>
+                        <br><br>
+                        <br>
+
+                        <h2 class="ui  image header">
+
+                            <div class="content">
+
+
+                                <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    软件开发者社区SDC
+                                </h2>
+
+                            </div>
+
+                        </h2>
+
+                        <form class="ui large form" method="post" action="#" th:action="@{/user/register}" enctype="multipart/form-data">
+                            <div class="ui  segment" style="height: 280px;width: 700px;">
+
+
+                                <!--                        <div class="field">-->
+                                <!--                            <div class="ui left icon input">-->
+                                <!--                                <i class="lock icon"></i>-->
+                                <!--                                <input type="file" name="file" placeholder="头像" >-->
+                                <!--                            </div>-->
+                                <!--                        </div>-->
+
+
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="user icon"></i>
+                                        <input type="text" name="username" placeholder="username">
+                                    </div>
+                                </div>
+
+
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="password" name="password" placeholder="password">
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <!--        <div class="fileInputContainer">-->
+                                <!--            <input class="fileInput" id="" type="file" name="">-->
+                                <!--        </div>-->
+
+                                <!--                        <div class="field">-->
+                                <!--                            <div class="ui left icon input">-->
+                                <!--                                <i class="lock icon"></i>-->
+                                <!--                                <input type="password" name="confirm_password" placeholder="confirm_password">-->
+                                <!--                            </div>-->
+                                <!--                        </div>-->
+
+
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="user icon"></i>
+                                        <input type="text" name="nickname" placeholder="nik">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <i class="envelope outline icon"></i>
+                                        <input type="text" name="email" placeholder="mail">
+                                    </div>
+
+                                    <!--                            <br>-->
+                                    <!--                            <br>-->
+
+
+
+                                    <!--                            <div class="field">-->
+                                    <!--                                <div class="ui input left icon">-->
+                                    <!--                                    <i class="calendar icon"></i>-->
+                                    <!--                                    <input type="date" placeholder="选择时间"  name="createTime" >-->
+                                    <!--                                </div>-->
+                                    <br>
+                                    <br>
+
+
+
+                                    <button type="submit" class="ui fluid gray large  submit button" name="button">注册</button>
+                                </div>
+
+                                <div class="ui error mini message"></div>
+                                <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+                            </div>
+                        </form>
+                        <br>
+                        <br><br>
+                        <br><br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </center>
+
+
+</div>
+
+</div>
+</body>
+
+    <!--    <div class="footer">Copyright <span>©</span> 1998-<script>document.write((new Date).getFullYear())</script>Tencent All Rights Reserved</div><div class="sms-up-dialog" style="display:none" data-bind="visible: is_up_sms()"><div class="close" data-bind="click:function(){$root.is_up_sms(false)}"></div><div class="please">请发送短信帮助我们确认你的身份</div><div><span class="verb">编辑短信：</span> <span class="target">1</span></div><div><span class="verb">发送至：</span> <span data-bind="text: up_sms_port_string" class="target"></span> <span class="error-msg" data-bind="visible: up_port_updated()">(接收号码已更新)</span></div><div class="price">除运营商收取的标准短信费用外，无额外费用。</div><button data-bind="click: submit" class="submit" id="has_up_sms">我已发送短信，下一步</button><div class="error-msg" data-bind="visible: up_error_msg().length"><span data-bind="text: up_error_msg"></span> <span data-bind="visible: up_error_count() > 2">或<a href="#" onclick="app.switchUpPort()">更换接收号码</a></span></div></div><div class="m-qq-register-dialog" style="display:none" data-bind="visible: is_mobile_qq_register()"><div class="close" data-bind="click:function(){$root.is_mobile_qq_register(false)}"></div><div class="m-qq-title">去手机QQ注册</div><div class="m-qq-tips" data-bind="text: mobile_qq_tips"></div><div class="qq-download-code"><img src="https://qzonestyle.gtimg.cn/aoi/sola/20190611144048_Bsd9ikI0uS.png"><div>扫码打开/下载手机QQ</div></div></div><div class="verify-dialog" id="verify-dialog" style="display:none" data-bind="visible: is_verify()"><div class="close" data-bind="click:closeVerify(), visible: can_close_verify()"></div><div id="verify-content"></div></div></div></div><div class="sms-up-background" style="display:none" data-bind="visible: is_up_sms() || is_verify() || is_mobile_qq_register()"></div>-->
+    <!--    --><!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+
+    <script>
+        var myemail = /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/;
+
+        function isEmailAvailable(str) {
+            if (!myemail.test(str)) {
+                layer.msg('邮箱不合法');
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $('.ui.form').form({
+            fields : {
+                username : {
+                    identifier: 'username',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请输入用户名'
+                    }]
+                },
+                password : {
+                    identifier: 'password',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请输入密码'
+                    }]
+                },
+                nickname : {
+                    identifier: 'nickname',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请输入昵称'
+                    }]
+                },
+                email : {
+                    identifier: 'email',
+                    rules: [{
+                        type : 'email',
+                        prompt: 'Email'
+                    }]
+                }
+            }
+        });
+    </script>
+
+
+    <script>
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+    </script>
+    <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js?bid=3977"></script><script type="text/javascript">var aegis=new Aegis({id:1134})</script><script type="text/javascript">window.lang=2052</script><script src="https://cdn-go.cn/qq-web/zc.qq.com/12ea5880/v3/js/index-8457f04ab7.js"></script><script type="text/javascript" src="//tajs.qq.com/stats?sId=61685996" charset="UTF-8"></script></body></html>

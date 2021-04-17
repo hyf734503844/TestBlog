@@ -1,0 +1,20 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/messages
+  mail:
+    username: 734503844@qq.com
+    host: smtp.qq.com
+    password: lyelwpqnarbubfff
+    protocol: smtp
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+
+
+
+#comment.avatar: /images/avatar.png
+file.path: G:\9.springboot论坛\images\
